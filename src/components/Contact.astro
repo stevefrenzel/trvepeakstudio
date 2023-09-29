@@ -1,0 +1,214 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import ErrorMessage from "./ErrorMessage.astro";
+---
+
+<section aria-label="Contact" id="contact">
+  <div class="container">
+    <div class="description">
+      <SectionHeader ariaLabel="Contact" href="#contact" title="Contact" />
+      <p>
+        Fill out the form below and let me know what we're going to work on
+        together. If you have demos of your songs, <mark
+          >please send links for Dropbox, WeTransfer or similar</mark
+        > instead of a file. Let's do this!
+      </p>
+    </div>
+
+    <form
+      action="https://formsubmit.co/8b3ef32a81a2f8b2b736bf54169486ab"
+      id="contact-form"
+      method="POST"
+    >
+      <label for="username">Your name:</label>
+      <input
+        aria-invalid="false"
+        aria-required="true"
+        id="username"
+        name="name"
+        type="text"
+        placeholder="Enter your name"
+      />
+
+      <ErrorMessage id="message-one" text="Error: Please enter your name." />
+
+      <label for="user-e-mail">Your e-mail:</label>
+      <input
+        aria-invalid="false"
+        aria-required="true"
+        id="user-e-mail"
+        name="email"
+        type="email"
+        placeholder="Enter your e-mail"
+      />
+
+      <ErrorMessage
+        id="message-two"
+        text="Error: Please enter a valid e-mail address."
+      />
+
+      <label for="user-message">Your message:</label>
+      <textarea
+        aria-invalid="false"
+        aria-required="true"
+        id="user-message"
+        name="message"
+        rows="6"
+        placeholder="Enter your message"></textarea>
+
+      <ErrorMessage
+        id="message-three"
+        text="Error: Please enter at least ten characters."
+      />
+
+      <div aria-live="assertive" class="dont-show" id="error-summary">
+        <p></p>
+      </div>
+
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    border-top: 7px solid black;
+    margin: var(--space-3xl) 0;
+    padding: 0 var(--space-xs);
+  }
+
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .description {
+    margin: var(--space-3xl) 0 var(--space-xl) 0;
+    max-width: 120ch;
+
+    p {
+      font-size: var(--step-2);
+    }
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+  }
+
+  input,
+  textarea {
+    border: 2px solid black;
+    margin-bottom: var(--space-s);
+    padding: var(--space-2xs);
+    width: 100%;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  #error-summary {
+    background: lightgoldenrodyellow;
+    border: 2px dotted grey;
+    border-radius: 5px;
+    padding: var(--space-3xs) var(--space-2xs);
+    width: fit-content;
+  }
+
+  button {
+    border: none;
+    width: 100%;
+    background: black;
+    color: white;
+    padding: var(--space-s) 0;
+    cursor: pointer;
+    margin-top: var(--space-l);
+    transition: 0.2s ease-in;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      background: #00ffd4;
+      color: black;
+    }
+  }
+</style>
+
+<script>
+  const validateForm = (event: Event) => {
+    // Inputs
+    const usernameInput = document.getElementById(
+      "username",
+    ) as HTMLInputElement;
+    const emailInput = document.getElementById(
+      "user-e-mail",
+    ) as HTMLInputElement;
+    const messageInput = document.getElementById(
+      "user-message",
+    ) as HTMLTextAreaElement;
+
+    // Error messages
+    const usernameError = document.getElementById("message-one");
+    const emailError = document.getElementById("message-two");
+    const messageError = document.getElementById("message-three");
+    const errorSummary = document.getElementById("error-summary");
+
+    // RegEx patterns
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Prevent form submission
+    event.preventDefault();
+
+    let errors = 0;
+
+    // Username validation
+    if (usernameInput.value.trim() === "") {
+      usernameError?.classList.remove("dont-show");
+      errors++;
+    } else {
+      usernameError?.classList.add("dont-show");
+    }
+
+    // E-mail validation
+    if (!emailPattern.test(emailInput.value)) {
+      emailError?.classList.remove("dont-show");
+      errors++;
+    } else {
+      emailError?.classList.add("dont-show");
+    }
+
+    // Message validation
+    if (messageInput.value.trim().length < 10) {
+      messageError?.classList.remove("dont-show");
+      errors++;
+    } else {
+      messageError?.classList.add("dont-show");
+    }
+
+    // Error summary
+    if (errorSummary) {
+      if (errors > 0) {
+        errorSummary.classList.remove("dont-show");
+        const errorSummaryText = `There ${
+          errors === 1 ? "is" : "are"
+        } ${errors} invalid input field${errors === 1 ? "" : "s"}.`;
+
+        const errorSummaryParagraph = errorSummary.querySelector("p");
+
+        if (errorSummaryParagraph) {
+          errorSummaryParagraph.textContent = errorSummaryText;
+        }
+      } else {
+        errorSummary.classList.add("dont-show");
+        (document.getElementById("contact-form") as HTMLFormElement).submit();
+      }
+    }
+  };
+
+  document
+    .getElementById("contact-form")
+    ?.addEventListener("submit", validateForm);
+</script>

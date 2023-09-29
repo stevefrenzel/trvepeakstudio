@@ -1,0 +1,197 @@
+---
+import "../styles/reset.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const metaData = {
+  keywords: "recording, editing, mixing, restoration, mastering",
+  description:
+    "Project studio based in Nuremberg, Germany. Offering services such as recording, editing & mixing.",
+  imageType: "image/png",
+  imageWidth: "1600",
+  imageHeight: "882",
+  type: "website",
+  siteName: "Trve Peak Studio",
+  twitterCard: "summary_large_image",
+};
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL("/seo.png", Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content={metaData.keywords} />
+    <meta name="description" content={metaData.description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={metaData.type} />
+    <meta property="og:site_name" content={metaData.siteName} />
+    <meta property="og:description" content={metaData.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:type" content={metaData.imageType} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content={metaData.imageWidth} />
+    <meta property="og:image:height" content={metaData.imageHeight} />
+    <meta name="twitter:card" content={metaData.twitterCard} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaData.description} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={title} />
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      @font-face {
+        font-display: swap;
+        font-family: "Atkinson Hyperlegible";
+        font-style: normal;
+        font-weight: 400;
+        src: url("../fonts/Atkinson-Hyperlegible-Regular-102a.woff2")
+          format("woff2");
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: "Roboto Slab";
+        font-style: normal;
+        font-weight: 700;
+        src: url("../fonts/roboto-slab-v33-latin-700.woff2") format("woff2");
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: "Roboto Slab";
+        font-style: normal;
+        font-weight: 900;
+        src: url("../fonts/roboto-slab-v33-latin-900.woff2") format("woff2");
+      }
+
+      :root {
+        /* Font sizes */
+        --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
+        --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+        --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+        --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+        --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+        --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+        --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+        --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+        /* Space sizes */
+        --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
+        --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+        --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+        --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+        --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+        --space-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.5rem);
+        --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
+        --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
+        --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
+      }
+
+      /* Focus styles by Stephanie Eckles */
+
+      :is(a, button, input, textarea, summary) {
+        --outline-size: max(2px, 0.08em);
+        --outline-style: solid;
+        --outline-color: currentColor;
+      }
+
+      :is(a, button, input, textarea, summary, img):hover {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+
+      :is(a, button, input, textarea, summary):focus {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+
+      :is(a, button, input, textarea, summary):focus-visible {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+
+      :is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      /* Outline-offset by Adam Argyle: https://codepen.io/argyleink/pen/JjEzeLp */
+
+      @media (prefers-reduced-motion: no-preference) {
+        :hover,
+        :focus {
+          transition: outline-offset 0.25s ease;
+          outline-offset: 5px;
+        }
+      }
+
+      .sr-only {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Roboto Slab";
+      }
+
+      h1 {
+        font-size: var(--step-5);
+      }
+
+      h2 {
+        font-size: calc(var(--step-4) * 1.2);
+      }
+
+      h3 {
+        font-size: calc(var(--step-3) * 1.2);
+      }
+
+      a,
+      p,
+      input,
+      label,
+      textarea,
+      button {
+        font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+        font-size: var(--step-1);
+      }
+
+      ul {
+        font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+      }
+
+      mark {
+        background: #00ffd4;
+      }
+
+      hr {
+        border: none;
+        border-bottom: 2px solid black;
+        max-width: 192px;
+        margin: var(--space-3xl) auto;
+      }
+
+      .dont-show {
+        display: none;
+      }
+    </style>
+  </body>
+</html>

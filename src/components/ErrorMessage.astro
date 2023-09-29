@@ -1,0 +1,32 @@
+---
+export interface Props {
+  id: string;
+  text: string;
+}
+
+const { id, text } = Astro.props;
+---
+
+<span class="dont-show" id={id}>
+  <p>{text}</p>
+</span>
+
+<style>
+  span {
+    background: #ffbdbd;
+    display: flex;
+    margin-bottom: var(--space-m);
+    padding: var(--space-3xs) var(--space-2xs);
+    border: 2px dashed grey;
+    border-radius: 5px;
+    width: fit-content;
+  }
+  p {
+    color: black;
+    margin-left: var(--space-3xs);
+  }
+
+  .dont-show {
+    display: none;
+  }
+</style>

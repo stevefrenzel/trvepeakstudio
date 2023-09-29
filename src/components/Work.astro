@@ -1,0 +1,238 @@
+---
+import { Image } from "astro:assets";
+import SectionHeader from "./SectionHeader.astro";
+
+import haxan from "@images/haxan.jpeg";
+import hiding from "@images/hiding-goofy.jpeg";
+import knifeEyes from "@images/knife-eyes.jpeg";
+import koraWinter from "@images/kora-winter.jpeg";
+import krimis from "@images/krimis.jpeg";
+import maffaiKrimis from "@images/maffai-krimis.jpeg";
+import nablo from "@images/nablo.jpeg";
+import nessel from "@images/nessel.jpeg";
+import nola from "@images/nola.jpeg";
+import orchidRouge from "@images/orchid-rouge.jpeg";
+import wwc from "@images/wwc.jpeg";
+
+const work = [
+  {
+    artist: "Orchid Rogue",
+    title: "Cadejos",
+    src: orchidRouge,
+    alt: "Cadejos by Orchid Rogue",
+    spotify:
+      "https://open.spotify.com/track/78MEmpxRgDpF8stA6K0JIJ?si=3caa65a6276848b0",
+    type: "Single",
+    genre: "Pop",
+    job: "Mastering",
+  },
+  {
+    artist: "Nablo",
+    title: "Chocolate Covered Cacao",
+    src: nablo,
+    alt: "Chocolate Covered Cacao by Nablo",
+    spotify:
+      "https://open.spotify.com/track/48zKKlWc0JFpKqelk20vL4?si=c2057eca8db840e9",
+    type: "Single",
+    genre: "Pop",
+    job: "Mastering",
+  },
+  {
+    artist: "The Krimis",
+    title: "Maffai meets The Krimis",
+    src: maffaiKrimis,
+    alt: "Autobahn by The Krimis",
+    spotify:
+      "https://open.spotify.com/album/2MJuamJ1KaNDz9Yp265aqi?si=O6SkUKj_TiOfTNzmDd6h-w",
+    type: "Compilation",
+    genre: "Pop",
+    job: "Producing, Mixing & Mastering",
+  },
+  {
+    artist: "Nessel",
+    title: "Gestalt",
+    src: nessel,
+    alt: "Gestalt by Nessel",
+    spotify:
+      "https://open.spotify.com/album/2Oslg1BmwVrd8v7UtrDEUJ?si=o_Yu5OKiQemX5yVZRvaKOQ",
+    type: "Album",
+    genre: "Metal",
+    job: "Producing, Recording, Mixing & Mastering",
+  },
+  {
+    artist: "The Krimis",
+    title: "Buzz",
+    src: krimis,
+    alt: "Buzz by The Krimis",
+    spotify:
+      "https://open.spotify.com/album/7cK9LKovKr0WKHh9vDuAFn?si=dQGOZjpKT_aNbXdgrcmvyA",
+    type: "Album",
+    genre: "Pop",
+    job: "Producing, Recording, Mixing & Mastering",
+  },
+  {
+    artist: "HAXAN",
+    title: "STRE$$",
+    src: haxan,
+    alt: "Stress by Haxan",
+    spotify:
+      "https://open.spotify.com/album/6frDw8h5iBVrSav9gln8KN?si=G2n-qVSVSqmeKsDL5jdQAA",
+    type: "Single",
+    genre: "Rap",
+    job: "Mastering",
+  },
+  {
+    artist: "Nola The Galgo",
+    title: "all my plants are dead",
+    src: nola,
+    alt: "All my plants are dead by Nola The Galgo",
+    spotify:
+      "https://open.spotify.com/track/2zTR6Bm7bR05SZKM2ftAsF?si=dd4f0805a2a44475",
+    type: "Single",
+    genre: "LoFi",
+    job: "Mastering",
+  },
+  {
+    artist: "When Waves Collapse",
+    title: "Movements II",
+    src: wwc,
+    alt: "Movements 2 by When Waves Collapse",
+    spotify:
+      "https://open.spotify.com/album/0JvqjhI4HPswFtoh34DDhu?si=RM3hwrzFS1mE05rWeAUsbA",
+    type: "Album",
+    genre: "Metal",
+    job: "Mastering",
+  },
+  {
+    artist: "Knife Eyes",
+    title: "Gewirr",
+    src: knifeEyes,
+    alt: "Gewirr by Knife Eyes",
+    spotify:
+      "https://open.spotify.com/album/4oSC6fLtXX2QNCck53iBcb?si=YmT435IJRQ-RyMsE9yyI7Q",
+    type: "Album",
+    genre: "Rock",
+    job: "Producing, Mixing & Mastering",
+  },
+  {
+    artist: "Hiding",
+    title: "Goofy",
+    src: hiding,
+    alt: "Goofy by Hiding",
+    spotify:
+      "https://open.spotify.com/album/47iSV6SPOJk5aKebBfBlL8?si=hd-zE37STreeZENbBNQo2w",
+    type: "Compilation",
+    genre: "Pop",
+    job: "Producing, Recording, Mixing & Mastering",
+  },
+  {
+    artist: "Kora Winter",
+    title: "Welk",
+    src: koraWinter,
+    alt: "Welk by Kora Winter",
+    spotify:
+      "https://open.spotify.com/album/06Q7ih44NBr0FEJqJKYanm?si=MWk2CWKhQsyRbEA1yWHhsA",
+    type: "Album",
+    genre: "Metal",
+    job: "Recording, Mixing & Mastering",
+  },
+];
+---
+
+<section aria-label="Selected works" id="work">
+  <div class="container">
+    <div class="description">
+      <SectionHeader
+        ariaLabel="Selected works"
+        href="#work"
+        title="Selected Works"
+      />
+      <p>
+        Here you can find a selection of records I'm particularly proud of.
+        Click on the artwork to listen to it on Spotify (external link).
+      </p>
+    </div>
+
+    <ul class="smol-css-grid primary" role="list">
+      {
+        work.map((item) => (
+          <li class="list-item">
+            <a href={item.spotify}>
+              <Image alt={item.alt} src={item.src} tabindex="-1" />
+            </a>
+            <ul class="secondary" role="list">
+              <li>
+                <strong>Artist: {item.artist}</strong>
+              </li>
+              <li>
+                <strong>Title: {item.title}</strong>
+              </li>
+              <li>Type: {item.type}</li>
+              <li>Genre: {item.genre}</li>
+              <li>Job: {item.job}</li>
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    border-top: 7px solid black;
+    padding: 0 var(--space-xs) var(--space-3xl) var(--space-xs);
+  }
+
+  .container {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+
+  .description {
+    margin: var(--space-3xl) 0;
+    max-width: 120ch;
+
+    p {
+      font-size: var(--step-2);
+    }
+  }
+
+  .primary,
+  .secondary {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
+  .secondary {
+    font-size: var(--step-0);
+    margin-top: var(--space-m);
+
+    li:first-child(),
+    li:nth-child(2) {
+      font-size: var(--step-1);
+    }
+  }
+
+  .smol-css-grid {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    justify-items: center;
+  }
+
+  .list-item {
+    height: auto;
+  }
+
+  img {
+    box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    height: 350px;
+    width: auto;
+  }
+</style>

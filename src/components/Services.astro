@@ -1,0 +1,240 @@
+---
+import { Image } from "astro:assets";
+import SectionHeader from "./SectionHeader.astro";
+import construction from "@images/under-construction.jpg";
+---
+
+<section aria-label="Services" id="services">
+  <div class="description">
+    <div>
+      <SectionHeader
+        ariaLabel="Services"
+        color="white"
+        href="#services"
+        title="Services"
+      />
+      <p>
+        As a full stack producer I focus on <mark
+          >recording, mixing and editing</mark
+        > your music. In addition, I offer other services to improve the quality
+        of the recordings and prepare them for release on different media. For
+        example
+        <mark>streaming platforms, CD and vinyl</mark>.
+      </p>
+    </div>
+  </div>
+
+  <article aria-label="Recording" class="right" id="recording">
+    <div class="text">
+      <h3>
+        Recording
+        <a aria-label="Link to Recording" href="#recording">
+          <span aria-hidden="true">🎙️</span></a
+        >
+      </h3>
+      <p>
+        In the world of audio recording, it's all about you and your vision. I
+        offer my services as an experienced recording engineer, available to be
+        booked for external recording studios.
+        <br aria-hidden="true" /><br aria-hidden="true" />
+         My goal is simple: to help you
+        <mark>capture the sound you envision for your final record</mark>. I
+        understand the importance of your creative input, and I'm here to ensure
+        your music comes to life just the way you want it.
+      </p>
+    </div>
+    <div class="image">
+      <Image
+        alt="Under construction sign"
+        src={construction}
+        height={construction.height}
+        width={construction.width}
+      />
+    </div>
+  </article>
+
+  <hr aria-hidden="true" />
+
+  <article aria-label="Editing" class="left" id="editing">
+    <div class="image">
+      <Image
+        alt="Under construction sign"
+        src={construction}
+        height={construction.height}
+        width={construction.width}
+      />
+    </div>
+    <div class="text">
+      <h3>
+        Editing
+        <a aria-label="Link to Editing" href="#editing">
+          <span aria-hidden="true">✂️</span>
+        </a>
+      </h3>
+      <br aria-hidden="true" />
+      <p>
+        When it comes to editing, I've spent plenty of time refining my skills,
+        especially when it comes to <mark
+          >instruments like drums, guitars, and bass</mark
+        >. For vocals, I take the time to tune them with care.
+        <br aria-hidden="true" /><br aria-hidden="true" />
+         These behind-the-scenes processes are essential to achieving a polished
+        and professional sound. My role is to make your music sound its best,
+        one note at a time, setting the stage for a spectacular final mix.
+      </p>
+    </div>
+  </article>
+
+  <hr aria-hidden="true" />
+
+  <article aria-label="Mixing" class="right" id="mixing">
+    <div class="text">
+      <h3>
+        Mixing
+        <a aria-label="Link to Mixing" href="#mixing">
+          <span aria-hidden="true">🎚️</span>
+        </a>
+      </h3>
+      <br aria-hidden="true" />
+      <p>
+        With a focus on <mark>genres like Rock, Metal, Pop, and Rap</mark>, I've
+        had the privilege of working with diverse musical styles. My aim is
+        simple: to provide you with a competitive and compelling mix.
+        <br aria-hidden="true" /><br aria-hidden="true" />
+         I'll take your project and elevate it to new heights, ensuring it meets
+        industry standards. Let's work together to make your music shine in its
+        own unique way, without losing sight of your artistic essence.
+      </p>
+    </div>
+    <div class="image">
+      <Image
+        alt="Under construction sign"
+        src={construction}
+        height={construction.height}
+        width={construction.width}
+      />
+    </div>
+  </article>
+
+  <hr aria-hidden="true" />
+
+  <article aria-label="Mastering" class="left" id="mastering">
+    <div class="image">
+      <Image
+        alt="Under construction sign"
+        src={construction}
+        height={construction.height}
+        width={construction.width}
+      />
+    </div>
+    <div class="text">
+      <h3>
+        Mastering
+        <a aria-label="Link to Mastering" href="#mastering">
+          <span aria-hidden="true">✨</span>
+        </a>
+      </h3>
+      <br aria-hidden="true" />
+      <p>
+        I work to enhance the overall clarity, depth, and impact of your
+        content, making it shine with professional quality.
+        <br aria-hidden="true" /><br aria-hidden="true" />
+         With a keen ear and a commitment to preserving the integrity of your
+        sound, <mark
+          >I'm here to deliver audio that stands the test of time</mark
+        >.
+      </p>
+    </div>
+  </article>
+
+  <hr aria-hidden="true" />
+
+  <article aria-label="Restoration" class="right" id="restoration">
+    <div class="text">
+      <h3>
+        Restoration
+        <a aria-label="Link to Restoration" href="#restoration">
+          <span aria-hidden="true">🔧</span>
+        </a>
+      </h3>
+      <br aria-hidden="true" />
+      <p>
+        If your audio has seen better days, my restoration expertise can <mark
+          >breathe new life into old or damaged recordings</mark
+        >, salvaging precious moments from the past.
+      </p>
+    </div>
+    <div class="image">
+      <Image
+        alt="Under construction sign"
+        src={construction}
+        height={construction.height}
+        width={construction.width}
+      />
+    </div>
+  </article>
+</section>
+
+<style lang="scss">
+  section {
+    padding-bottom: var(--space-3xl);
+  }
+
+  a {
+    font-size: var(--step-3);
+    text-decoration: none;
+  }
+
+  .description {
+    background: black;
+    color: white;
+    margin: 0 auto var(--space-3xl) auto;
+
+    div {
+      margin: 0 auto;
+      max-width: 768px;
+      padding: var(--space-3xl) var(--space-xs);
+    }
+
+    p {
+      font-size: var(--step-2);
+    }
+  }
+
+  article {
+    display: grid;
+    gap: var(--space-xs);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 0 auto;
+    max-width: 1536px;
+    padding: 0 var(--space-xs);
+    scroll-margin-top: var(--space-3xl);
+
+    .image {
+      align-self: center;
+
+      img {
+        max-height: 450px;
+        object-fit: cover;
+        width: auto;
+      }
+    }
+
+    .text {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 70ch;
+    }
+
+    h3 {
+      margin-bottom: var(--space-xs);
+    }
+  }
+
+  [aria-label="Recording"] {
+    margin-top: 0;
+  }
+</style>
