@@ -1,8 +1,12 @@
+---
+import BackToTop from "../components/BackToTop.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
 <footer>
-  <p>
-    Coded with love by Steve Frenzel. Yes, I am also a web developer, check out
-    my other website: <a href="https://stevefrenzel.dev/">stevefrenzel.dev</a>
-  </p>
+  <p>&copy; {currentYear} Trve Peak Studio. All rights reserved.</p>
+  <BackToTop />
 </footer>
 
 <style>
@@ -13,12 +17,7 @@
     text-align: center;
   }
 
-  a,
   p {
     font-size: var(--step-0);
-  }
-
-  a {
-    color: white;
   }
 </style>

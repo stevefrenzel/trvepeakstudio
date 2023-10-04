@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import SectionHeader from "./SectionHeader.astro";
 
 import haxan from "@images/haxan.jpeg";
 import hiding from "@images/hiding-goofy.jpeg";
@@ -141,24 +140,18 @@ const work = [
 
 <section aria-label="Selected works" id="work">
   <div class="container">
-    <div class="description">
-      <SectionHeader
-        ariaLabel="Selected works"
-        href="#work"
-        title="Selected Works"
-      />
-      <p>
-        Here you can find a selection of records I'm particularly proud of.
-        Click on the artwork to listen to it on Spotify (external link).
-      </p>
-    </div>
+    <h2>Selected works</h2>
+    <p>
+      Here you can find a selection of records I'm particularly proud of. Click
+      on the artwork to listen to it on Spotify (external link).
+    </p>
 
     <ul class="smol-css-grid primary" role="list">
       {
         work.map((item) => (
           <li class="list-item">
             <a href={item.spotify}>
-              <Image alt={item.alt} src={item.src} tabindex="-1" />
+              <Image alt={item.alt} src={item.src} />
             </a>
             <ul class="secondary" role="list">
               <li>
@@ -179,28 +172,13 @@ const work = [
 </section>
 
 <style lang="scss">
-  section {
-    border-top: 7px solid black;
-    padding: 0 var(--space-xs) var(--space-3xl) var(--space-xs);
-  }
-
-  .container {
-    max-width: 1536px;
-    margin: 0 auto;
-  }
-
-  .description {
-    margin: var(--space-3xl) 0;
-    max-width: 120ch;
-
-    p {
-      font-size: var(--step-2);
-    }
+  p {
+    margin-top: var(--space-xs);
   }
 
   .primary,
   .secondary {
-    margin: 0;
+    margin: var(--space-xl) 0 0 0;
     padding: 0;
 
     li {
@@ -227,12 +205,38 @@ const work = [
 
   .list-item {
     height: auto;
+    a {
+      img {
+        transition: outline-offset 0.25s ease;
+      }
+    }
+
+    &:hover {
+      img {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+    }
+
+    a:focus {
+      img {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+    }
+
+    a:focus-visible {
+      img {
+        outline: var(--outline-size) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset, var(--outline-size));
+      }
+    }
   }
 
   img {
     box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
-    object-fit: cover;
     height: 350px;
+    object-fit: cover;
     width: auto;
   }
 </style>

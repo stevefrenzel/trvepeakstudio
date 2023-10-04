@@ -1,87 +1,72 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@images/logo-full.svg";
-
-const placeholder = "https://placehold.co/1536x768";
+import placeholder from "@images/placeholder.jpg";
 ---
 
 <section aria-label="Intro" id="start">
-  <h1 class="sr-only">True Peak Studio</h1>
-
-  <div class="image">
-    <Image
-      alt="Steve Frenzel in his studio"
-      id="picture"
-      src={placeholder}
-      loading="eager"
-      height={768}
-      width={1536}
-    />
-    <Image alt="True Peak Studio logo" id="logo" src={logo} loading="eager" />
-  </div>
-
-  <div class="text">
+  <div class="container">
+    <h1 class="sr-only">Trve Peak Studio</h1>
+    <div class="image">
+      <Image
+        alt="Stock footage of a tattoed guy sitting on a mixing desk"
+        id="picture"
+        src={placeholder}
+        loading="eager"
+        height={placeholder.height}
+        width={placeholder.width}
+      />
+      <div class="overlay"></div>
+      <Image
+        alt="True Peak Studio logo"
+        id="logo"
+        src={logo}
+        loading="eager"
+        height={logo.height}
+        width={logo.width}
+      />
+    </div>
     <p>
-      Full stack production studio based in Nuremberg, Germany. Offering
-      services such as <mark>recording, editing & mixing</mark> and available
-      for work as <mark>live sound engineer</mark>. Get in touch with me via the
-
-
-      <a href="#contact">contact form</a>, send me a message on <a
+      Project studio offering the following services: <mark
+        >Recording, editing, mixing, restoration & mastering</mark
+      >. Get in touch via <a href="mailto:info@trvepeak.studio">e-mail</a> or <a
         rel="me"
         href="https://mastodon.social/@trvepeakstudio">Mastodon</a
-      > or write me an <a href="mailto:info@trvepeak.studio">e-mail</a>!
-      <span aria-hidden="true">✌️</span>
-    </p>
-
-    <p>
-      <span aria-hidden="true">🚧</span> Wondering about this ugly, grey
-      placeholder image? I haven't had the chance to get new photos of me and
-      the studio yet, but wanted to publish the website anyway. Remember the
-      good old days, when there was a "under construction" sign on the website? <span
-        aria-hidden="true">🚧</span
-      >
+      >!
     </p>
   </div>
 </section>
 
 <style lang="scss">
-  section {
-    margin: 0 auto;
-    max-width: 1536px;
-    padding: var(--space-3xl) 0;
+  p {
+    margin-top: var(--space-xs);
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 50%;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
   .image {
-    height: 768px;
-    max-width: 1536px;
+    height: 576px;
+    max-width: var(--large);
     position: relative;
   }
 
   #picture {
-    height: 100%;
+    height: 576px;
     object-fit: cover;
   }
 
   #logo {
-    padding: 0 var(--space-s);
+    filter: invert(1);
+    max-height: 288px;
+    padding: var(--space-s);
     position: absolute;
-    top: 50%;
-  }
-
-  .text {
-    padding: 0 var(--space-xs);
-    margin: var(--space-l) auto 0 auto;
-    max-width: 120ch;
-
-    a,
-    p {
-      font-size: var(--step-2);
-    }
-
-    p:nth-child(2) {
-      font-size: var(--step-1);
-      margin-top: var(--space-l);
-    }
+    top: 0;
+    width: auto;
   }
 </style>
