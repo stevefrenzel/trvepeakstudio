@@ -1,34 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@images/logo-full.svg";
-import placeholder from "@images/placeholder.jpg";
 ---
 
 <section aria-label="Intro" id="start">
   <div class="container">
     <h1 class="sr-only">Trve Peak Studio</h1>
-    <div class="image">
-      <Image
-        alt="Stock footage of a tattoed guy sitting on a mixing desk"
-        id="picture"
-        src={placeholder}
-        loading="eager"
-        height={placeholder.height}
-        width={placeholder.width}
-      />
-      <div class="overlay"></div>
-      <Image
-        alt="True Peak Studio logo"
-        id="logo"
-        src={logo}
-        loading="eager"
-        height={logo.height}
-        width={logo.width}
-      />
-    </div>
+    <Image
+      alt="True Peak Studio logo"
+      height={logo.height}
+      loading="eager"
+      src={logo}
+      width={logo.width}
+    />
     <p>
-      Project studio offering the following services: <mark
-        >Recording, editing, mixing, restoration & mastering</mark
+      Project studio based in Nuremberg, Germany. <span aria-hidden="true"
+        >🇩🇪</span
+      > Offering the following services: <mark
+        >Producing, recording, editing, mixing &amp; mastering</mark
       >. Get in touch via <a href="mailto:info@trvepeak.studio">e-mail</a> or <a
         rel="me"
         href="https://mastodon.social/@trvepeakstudio">Mastodon</a
@@ -37,36 +26,17 @@ import placeholder from "@images/placeholder.jpg";
   </div>
 </section>
 
-<style lang="scss">
+<style>
+  section {
+    padding-top: var(--space-xs);
+  }
+
   p {
-    margin-top: var(--space-xs);
+    margin: var(--space-xs) auto 0 auto;
+    max-width: 60ch;
   }
 
-  .overlay {
-    background: rgba(0, 0, 0, 0.5);
-    height: 50%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .image {
-    height: 576px;
-    max-width: var(--large);
-    position: relative;
-  }
-
-  #picture {
-    height: 576px;
-    object-fit: cover;
-  }
-
-  #logo {
-    filter: invert(1);
-    max-height: 288px;
-    padding: var(--space-s);
-    position: absolute;
-    top: 0;
-    width: auto;
+  img {
+    margin: 0 auto;
   }
 </style>

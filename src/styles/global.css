@@ -151,7 +151,7 @@ label,
 textarea,
 button {
   font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
-  font-size: var(--step-2);
+  font-size: var(--step-1);
 }
 
 ul {

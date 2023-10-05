@@ -45,7 +45,7 @@ const work = [
       "https://open.spotify.com/album/2MJuamJ1KaNDz9Yp265aqi?si=O6SkUKj_TiOfTNzmDd6h-w",
     type: "Compilation",
     genre: "Pop",
-    job: "Producing, Mixing & Mastering",
+    job: "Producing, mixing & mastering",
   },
   {
     artist: "Nessel",
@@ -56,7 +56,7 @@ const work = [
       "https://open.spotify.com/album/2Oslg1BmwVrd8v7UtrDEUJ?si=o_Yu5OKiQemX5yVZRvaKOQ",
     type: "Album",
     genre: "Metal",
-    job: "Producing, Recording, Mixing & Mastering",
+    job: "Producing, recording, mixing & mastering",
   },
   {
     artist: "The Krimis",
@@ -67,7 +67,7 @@ const work = [
       "https://open.spotify.com/album/7cK9LKovKr0WKHh9vDuAFn?si=dQGOZjpKT_aNbXdgrcmvyA",
     type: "Album",
     genre: "Pop",
-    job: "Producing, Recording, Mixing & Mastering",
+    job: "Producing, recording, mixing & mastering",
   },
   {
     artist: "HAXAN",
@@ -111,7 +111,7 @@ const work = [
       "https://open.spotify.com/album/4oSC6fLtXX2QNCck53iBcb?si=YmT435IJRQ-RyMsE9yyI7Q",
     type: "Album",
     genre: "Rock",
-    job: "Producing, Mixing & Mastering",
+    job: "Producing, mixing & mastering",
   },
   {
     artist: "Hiding",
@@ -122,7 +122,7 @@ const work = [
       "https://open.spotify.com/album/47iSV6SPOJk5aKebBfBlL8?si=hd-zE37STreeZENbBNQo2w",
     type: "Compilation",
     genre: "Pop",
-    job: "Producing, Recording, Mixing & Mastering",
+    job: "Producing, recording, mixing & mastering",
   },
   {
     artist: "Kora Winter",
@@ -133,7 +133,7 @@ const work = [
       "https://open.spotify.com/album/06Q7ih44NBr0FEJqJKYanm?si=MWk2CWKhQsyRbEA1yWHhsA",
     type: "Album",
     genre: "Metal",
-    job: "Recording, Mixing & Mastering",
+    job: "Recording, mixing & mastering",
   },
 ];
 ---
@@ -154,12 +154,8 @@ const work = [
               <Image alt={item.alt} src={item.src} />
             </a>
             <ul class="secondary" role="list">
-              <li>
-                <strong>Artist: {item.artist}</strong>
-              </li>
-              <li>
-                <strong>Title: {item.title}</strong>
-              </li>
+              <li>Artist: {item.artist}</li>
+              <li>Title: {item.title}</li>
               <li>Type: {item.type}</li>
               <li>Genre: {item.genre}</li>
               <li>Job: {item.job}</li>
@@ -174,6 +170,7 @@ const work = [
 <style lang="scss">
   p {
     margin-top: var(--space-xs);
+    max-width: 60ch;
   }
 
   .primary,
@@ -188,7 +185,7 @@ const work = [
 
   .secondary {
     font-size: var(--step-0);
-    margin-top: var(--space-m);
+    margin: var(--space-m) 0;
 
     li:first-child(),
     li:nth-child(2) {
@@ -205,6 +202,8 @@ const work = [
 
   .list-item {
     height: auto;
+    max-width: 350px;
+
     a {
       img {
         transition: outline-offset 0.25s ease;

@@ -2,6 +2,7 @@
 
 Website for my project studio. Built with [Astro](https://astro.build/) and some other cool things:
 
+- [Utopia: Full responsive design](https://utopia.fyi/)
 - [A (more) Modern CSS Reset](https://andy-bell.co.uk/a-more-modern-css-reset/) by Andy Bell
 - [Standardizing Focus Styles With CSS Custom Properties](https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/) by Stephanie Eckles
 - [Outline-offset](https://codepen.io/argyleink/pen/JjEzeLp) by Adam Argyle
