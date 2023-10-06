@@ -1,5 +1,5 @@
 ---
-import BackToTop from "../components/BackToTop.astro";
+import BackToTop from "@components/BackToTop.astro";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -11,8 +11,8 @@ const currentYear = new Date().getFullYear();
 
 <style>
   footer {
-    background: black;
-    color: white;
+    background: var(--black);
+    color: var(--white);
     padding: var(--space-m);
     text-align: center;
   }

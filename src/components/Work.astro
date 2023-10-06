@@ -11,6 +11,7 @@ import nablo from "@images/nablo.jpeg";
 import nessel from "@images/nessel.jpeg";
 import nola from "@images/nola.jpeg";
 import orchidRouge from "@images/orchid-rouge.jpeg";
+import spotify from "@images/spotify.svg";
 import wwc from "@images/wwc.jpeg";
 
 const work = [
@@ -140,22 +141,35 @@ const work = [
 
 <section aria-label="Selected works" id="work">
   <div class="container">
-    <h2>Selected works</h2>
-    <p>
-      Here you can find a selection of records I'm particularly proud of. Click
-      on the artwork to listen to it on Spotify (external link). Find even more
-      music on my <a
-        href="https://tidal.com/browse/playlist/561b6f61-788e-40f5-9e50-befb68e4e180"
-        >Tidal playlist</a
-      > (external link).
-    </p>
+    <div class="header">
+      <div>
+        <h2>Selected works</h2>
+        <p>
+          Here you can find a selection of records I'm particularly proud of.
+          Click on the artwork to listen to it on Spotify or check out my
+          <a href="https://open.spotify.com/playlist/7MQqXcVC9ufOPqClXIMS8b"
+            >Spotify playlist</a
+          > (external links).
+        </p>
+        <p id="hidden-text">
+          You can also listen to it right here! Click on this button, give up
+          your privacy rights and let them spy on you:
+        </p>
+        <button id="show-spotify">
+          Spotify Player
+          <Image alt="" height={36} src={spotify} width={36} />
+        </button>
+      </div>
+
+      <div id="spotify-container"></div>
+    </div>
 
     <ul class="smol-css-grid primary" role="list">
       {
         work.map((item) => (
           <li class="list-item">
-            <a href={item.spotify}>
-              <Image alt={item.alt} src={item.src} />
+            <a href={item.spotify} rel="noopener noreferrer">
+              <Image alt={item.alt} class="cover-artwork" src={item.src} />
             </a>
             <ul class="secondary" role="list">
               <li>Artist: {item.artist}</li>
@@ -175,6 +189,29 @@ const work = [
   p {
     margin-top: var(--space-xs);
     max-width: 60ch;
+  }
+
+  button {
+    align-items: center;
+    background: var(--spotify);
+    border: none;
+    border-radius: 500px;
+    color: var(--black);
+    cursor: pointer;
+    display: flex;
+    gap: var(--space-2xs);
+    margin-top: var(--space-xs);
+    padding: 1% 2%;
+  }
+
+  .header {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  }
+
+  #spotify-container {
+    display: none;
   }
 
   .primary,
@@ -208,26 +245,8 @@ const work = [
     height: auto;
     max-width: 350px;
 
-    a {
-      img {
-        transition: outline-offset 0.25s ease;
-      }
-    }
-
-    &:hover {
-      img {
-        outline: var(--outline-size) var(--outline-style) var(--outline-color);
-        outline-offset: var(--outline-offset, var(--outline-size));
-      }
-    }
-
-    a:focus {
-      img {
-        outline: var(--outline-size) var(--outline-style) var(--outline-color);
-        outline-offset: var(--outline-offset, var(--outline-size));
-      }
-    }
-
+    a:hover,
+    a:focus,
     a:focus-visible {
       img {
         outline: var(--outline-size) var(--outline-style) var(--outline-color);
@@ -236,10 +255,45 @@ const work = [
     }
   }
 
-  img {
+  .cover-artwork {
     box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
     height: 350px;
     object-fit: cover;
+    transition: outline-offset 0.25s ease;
     width: auto;
   }
 </style>
+
+<script>
+  const showSpotifyButton = document.getElementById("show-spotify");
+  const hiddenText = document.getElementById("hidden-text");
+
+  if (showSpotifyButton && hiddenText) {
+    showSpotifyButton.addEventListener("click", function () {
+      if (showSpotifyButton.parentNode) {
+        showSpotifyButton.parentNode.removeChild(showSpotifyButton);
+      }
+
+      const spotifyIframe = document.createElement("iframe");
+      spotifyIframe.setAttribute("aria-label", "Spotify Player");
+      spotifyIframe.setAttribute(
+        "src",
+        "https://open.spotify.com/embed/playlist/7MQqXcVC9ufOPqClXIMS8b?utm_source=generator&theme=0",
+      );
+      spotifyIframe.setAttribute("loading", "lazy");
+
+      spotifyIframe.style.border = "none";
+      spotifyIframe.style.height = "352px";
+      spotifyIframe.style.width = "100%";
+
+      const container = document.getElementById("spotify-container");
+
+      if (container) {
+        container.appendChild(spotifyIframe);
+        container.style.display = "block";
+      }
+
+      hiddenText.classList.add("dont-show");
+    });
+  }
+</script>

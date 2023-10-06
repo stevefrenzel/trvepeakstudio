@@ -43,35 +43,36 @@
   /* Colors */
   --black: #070707;
   --blue: #00ffd4;
-  --yellow: #fbd400;
+  --spotify: #1bd75f;
   --white: #f9f9f9;
+  --yellow: #fbd400;
 }
 
 /* Focus styles by Stephanie Eckles */
 
-:is(a) {
+:is(a, button) {
   --outline-size: max(2px, 0.08em);
   --outline-style: solid;
   --outline-color: currentColor;
   --outline-offset: 3px;
 }
 
-:is(a):hover {
+:is(a, button):hover {
   outline: var(--outline-size) var(--outline-style) var(--outline-color);
   outline-offset: var(--outline-offset, var(--outline-size));
 }
 
-:is(a):focus {
+:is(a, button):focus {
   outline: var(--outline-size) var(--outline-style) var(--outline-color);
   outline-offset: var(--outline-offset, var(--outline-size));
 }
 
-:is(a):focus-visible {
+:is(a, button):focus-visible {
   outline: var(--outline-size) var(--outline-style) var(--outline-color);
   outline-offset: var(--outline-offset, var(--outline-size));
 }
 
-:is(a):focus:not(:focus-visible) {
+:is(a, button):focus:not(:focus-visible) {
   outline: none;
 }
 
