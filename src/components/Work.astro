@@ -145,23 +145,21 @@ const work = [
       <div>
         <h2>Selected works</h2>
         <p>
-          Here you can find a selection of records I'm particularly proud of.
-          Click on the artwork to listen to it on Spotify or check out my
-          <a href="https://open.spotify.com/playlist/7MQqXcVC9ufOPqClXIMS8b"
-            >Spotify playlist</a
-          > (external links).
+          Here you can find a selection of records I'm particularly proud of. To
+          listen to them, either click on the artwork, go to my <a
+            href="https://open.spotify.com/playlist/7MQqXcVC9ufOPqClXIMS8b"
+            rel="noopener noreferrer">Spotify playlist</a
+          >
+           or listen to it right here (loads third-party content).
         </p>
-        <p id="hidden-text">
-          You can also listen to it right here! Click on this button, give up
-          your privacy rights and let them spy on you:
-        </p>
-        <button id="show-spotify">
-          Spotify Player
-          <Image alt="" height={36} src={spotify} width={36} />
-        </button>
       </div>
 
-      <div id="spotify-container"></div>
+      <div id="spotify-container">
+        <button aria-label="Click to show Spotify Player" id="show-spotify">
+          <Image alt="" height={96} src={spotify} width={96} />
+          <span aria-hidden="true">(Click to show playlist)</span>
+        </button>
+      </div>
     </div>
 
     <ul class="smol-css-grid primary" role="list">
@@ -193,15 +191,13 @@ const work = [
 
   button {
     align-items: center;
-    background: var(--spotify);
+    background: transparent;
     border: none;
-    border-radius: 500px;
-    color: var(--black);
     cursor: pointer;
     display: flex;
-    gap: var(--space-2xs);
-    margin-top: var(--space-xs);
-    padding: 1% 2%;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--step-0);
   }
 
   .header {
@@ -211,7 +207,12 @@ const work = [
   }
 
   #spotify-container {
-    display: none;
+    border: 1px dashed var(--black);
+    border-radius: 12px;
+    height: 352px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .primary,
@@ -266,9 +267,8 @@ const work = [
 
 <script>
   const showSpotifyButton = document.getElementById("show-spotify");
-  const hiddenText = document.getElementById("hidden-text");
 
-  if (showSpotifyButton && hiddenText) {
+  if (showSpotifyButton) {
     showSpotifyButton.addEventListener("click", function () {
       if (showSpotifyButton.parentNode) {
         showSpotifyButton.parentNode.removeChild(showSpotifyButton);
@@ -291,9 +291,9 @@ const work = [
       if (container) {
         container.appendChild(spotifyIframe);
         container.style.display = "block";
+        container.style.border = "none";
+        container.style.borderRadius = "none";
       }
-
-      hiddenText.classList.add("dont-show");
     });
   }
 </script>

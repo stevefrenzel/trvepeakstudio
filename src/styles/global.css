@@ -41,11 +41,8 @@
   --small: 384px;
   --extra-small: 192px;
   /* Colors */
-  --black: #070707;
-  --blue: #00ffd4;
-  --spotify: #1bd75f;
+  --black: #090909;
   --white: #f9f9f9;
-  --yellow: #fbd400;
 }
 
 /* Focus styles by Stephanie Eckles */
@@ -88,8 +85,8 @@
 /* Skip link */
 
 .visually-hidden {
-  background: var(--blue);
-  color: black;
+  background: var(--black);
+  color: var(--white);
   left: var(--space-xs);
   padding: var(--space-xs);
   position: absolute;
@@ -160,8 +157,8 @@ ul {
 }
 
 mark {
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
 }
 
 hr {
