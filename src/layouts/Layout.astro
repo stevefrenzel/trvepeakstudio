@@ -1,5 +1,6 @@
 ---
 import "@styles/reset.css";
+import "@styles/variables.css";
 import "@styles/global.css";
 
 interface Props {
@@ -32,7 +33,10 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={metaData.keywords} />
     <meta name="description" content={metaData.description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✌️</text></svg>"
+    />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
     <meta property="og:url" content={canonicalURL} />

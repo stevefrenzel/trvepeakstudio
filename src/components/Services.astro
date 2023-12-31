@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+const placeholder = "https://placehold.co/800x800";
+---
+
+<section aria-label="Services">
+  <div class="wrapper">
+    <h2>Services</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero labore hic
+      perferendis delectus, accusantium pariatur animi in assumenda a deserunt
+      totam harum, itaque quod distinctio quas voluptatem commodi odio maiores?
+    </p>
+    <article aria-label="Recording & Editing" class="smol-flexbox-grid">
+      <Image alt="Placeholder" height={400} src={placeholder} width={400} />
+      <div class="text">
+        <h3>Recording & Editing</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti
+          nulla incidunt eum, temporibus rerum deleniti id numquam eligendi
+          voluptas eveniet sit minima perferendis unde, non nobis at amet
+          impedit molestias?
+        </p>
+      </div>
+    </article>
+    <article aria-label="Mixing">
+      <Image alt="Placeholder" height={800} src={placeholder} width={800} />
+      <div class="text">
+        <h3>Mixing</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti
+          nulla incidunt eum, temporibus rerum deleniti id numquam eligendi
+          voluptas eveniet sit minima perferendis unde, non nobis at amet
+          impedit molestias?
+        </p>
+      </div>
+    </article>
+    <article aria-label="Mastering">
+      <Image alt="Placeholder" height={800} src={placeholder} width={800} />
+      <div class="text">
+        <h3>Mastering</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti
+          nulla incidunt eum, temporibus rerum deleniti id numquam eligendi
+          voluptas eveniet sit minima perferendis unde, non nobis at amet
+          impedit molestias?
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .wrapper {
+    margin: 0 auto;
+    max-width: var(--large);
+  }
+  .smol-flexbox-grid {
+    --min: 10ch;
+    --gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+</style>

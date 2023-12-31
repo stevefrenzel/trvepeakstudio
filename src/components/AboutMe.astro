@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+const placeholder = "https://placehold.co/1200x800";
+---
+
+<section aria-label="About me">
+  <div class="wrapper">
+    <Image alt="Placeholder" src={placeholder} height={400} width={1200} />
+    <h2>About me</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, quasi
+      tenetur. Ratione incidunt accusamus quos ipsam, facere, voluptatum
+      veritatis, itaque ab quasi atque exercitationem omnis aspernatur maxime
+      quibusdam fuga et?
+    </p>
+  </div>
+</section>
+
+<style>
+  .wrapper {
+    margin: 0 auto;
+    max-width: var(--large);
+  }
+  section {
+    background: var(--black);
+    color: var(--white);
+    padding: var(--space-xl) 0;
+  }
+  img {
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+  }
+  h2,
+  p {
+    padding: 0 var(--space-xs);
+  }
+  h2 {
+    margin-top: var(--space-xs);
+  }
+  p {
+    margin-top: var(--space-xs);
+  }
+</style>

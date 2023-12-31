@@ -1,11 +1,47 @@
-# Trve Peak Studio
+# Astro Starter Kit: Minimal
 
-Website for my project studio. Built with [Astro](https://astro.build/) and some other cool things:
+```sh
+npm create astro@latest -- --template minimal
+```
 
-- [Utopia: Full responsive design](https://utopia.fyi/)
-- [A (more) Modern CSS Reset](https://andy-bell.co.uk/a-more-modern-css-reset/) by Andy Bell
-- [Standardizing Focus Styles With CSS Custom Properties](https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/) by Stephanie Eckles
-- [Outline-offset](https://codepen.io/argyleink/pen/JjEzeLp) by Adam Argyle
-- [google-webfonts-helper](https://gwfh.mranftl.com/fonts) by Mario Ranftl
-- [Placehold](https://placehold.co/): A simple, fast and free image placeholder service
-- [Hiding Content Visually](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html#hiding-content-visually) by Scott O'Hara
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
