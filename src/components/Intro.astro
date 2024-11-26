@@ -13,18 +13,16 @@ import logo from "@images/logo-full.svg";
       src={logo}
       width={logo.width}
     />
+    <h1>TRVE PEAK STUDIO</h1>
     <p>
-      Project studio based in Nuremberg, Germany. <span aria-hidden="true"
-        >🇩🇪</span
-      > Offering the following services: <mark
-        >Producing, recording, editing, mixing &amp; mastering</mark
-      >. Get in touch via <a
+      Recording, mixing, mastering, editing &amp; producing made in Germany. Get
+      in touch via <a
         href="mailto:info@trvepeak.studio"
         rel="noopener noreferrer">e-mail</a
       > or <a
         rel="me noopener noreferrer"
         href="https://mastodon.social/@trvepeakstudio">Mastodon</a
-      >!
+      >.
     </p>
   </div>
 </section>
@@ -39,7 +37,18 @@ import logo from "@images/logo-full.svg";
     max-width: 60ch;
   }
 
+  a,
+  p {
+    font-size: 2rem;
+  }
+
   img {
-    margin: 0 auto;
+    margin: var(--space-2xl) auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    img {
+      filter: invert(1);
+    }
   }
 </style>
