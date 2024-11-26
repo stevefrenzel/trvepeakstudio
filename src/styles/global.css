@@ -106,15 +106,6 @@
   width: 1px;
 }
 
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 body {
   background-color: light-dark(var(--white), var(--black));
   color: light-dark(var(--black), var(--white));
