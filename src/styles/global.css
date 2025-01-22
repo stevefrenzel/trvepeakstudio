@@ -1,165 +1,169 @@
-@font-face {
-  font-display: swap;
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/lato-v24-latin-700.woff2") format("woff2");
-}
+@layer reset, global;
 
-@font-face {
-  font-display: swap;
-  font-family: "Atkinson Hyperlegible";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
-}
-
-:root {
-  /* Font sizes */
-  --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
-  --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
-  --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
-  --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
-  --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
-  --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
-  --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
-  /* Space sizes */
-  --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
-  --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
-  --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
-  --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
-  --space-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.5rem);
-  --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
-  --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
-  --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
-  /* Shirt sizes */
-  --extra-large: 1536px;
-  --large: 1152px;
-  --medium: 768px;
-  --small: 384px;
-  --extra-small: 192px;
-  /* Colors */
-  color-scheme: light dark;
-  --black: #090909;
-  --white: #f9f9f9;
-}
-
-/* Focus styles by Stephanie Eckles */
-
-:is(a, button) {
-  --outline-size: max(2px, 0.08em);
-  --outline-style: solid;
-  --outline-color: currentColor;
-  --outline-offset: 3px;
-}
-
-:is(a, button):hover {
-  outline: var(--outline-size) var(--outline-style) var(--outline-color);
-  outline-offset: var(--outline-offset, var(--outline-size));
-}
-
-:is(a, button):focus {
-  outline: var(--outline-size) var(--outline-style) var(--outline-color);
-  outline-offset: var(--outline-offset, var(--outline-size));
-}
-
-:is(a, button):focus-visible {
-  outline: var(--outline-size) var(--outline-style) var(--outline-color);
-  outline-offset: var(--outline-offset, var(--outline-size));
-}
-
-:is(a, button):focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Outline-offset by Adam Argyle: https://codepen.io/argyleink/pen/JjEzeLp */
-
-@media (prefers-reduced-motion: no-preference) {
-  :hover,
-  :focus {
-    transition: outline-offset 0.25s ease;
+@layer global {
+  @font-face {
+    font-display: swap;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/lato-v24-latin-700.woff2") format("woff2");
   }
-}
 
-/* Skip link */
+  @font-face {
+    font-display: swap;
+    font-family: "Atkinson Hyperlegible";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
+  }
 
-.visually-hidden {
-  background: var(--black);
-  color: var(--white);
-  left: var(--space-xs);
-  padding: var(--space-xs);
-  position: absolute;
-  text-align: center;
-  top: var(--space-xs);
-  z-index: 2;
-}
+  :root {
+    /* Font sizes */
+    --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
+    --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+    --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+    --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+    --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+    --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+    --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+    /* Space sizes */
+    --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
+    --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+    --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+    --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+    --space-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.5rem);
+    --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
+    --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
+    --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
+    /* Shirt sizes */
+    --extra-large: 1536px;
+    --large: 1152px;
+    --medium: 768px;
+    --small: 384px;
+    --extra-small: 192px;
+    /* Colors */
+    color-scheme: light dark;
+    --black: #090909;
+    --white: #f9f9f9;
+  }
 
-.visually-hidden:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+  /* Focus styles by Stephanie Eckles */
 
-body {
-  background-color: light-dark(var(--white), var(--black));
-  color: light-dark(var(--black), var(--white));
-}
+  :is(a, button) {
+    --outline-size: max(2px, 0.08em);
+    --outline-style: solid;
+    --outline-color: currentColor;
+    --outline-offset: 3px;
+  }
 
-section {
-  padding: var(--space-xl) var(--space-xs);
-}
+  :is(a, button):hover {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
 
-.container {
-  margin: 0 auto;
-  max-width: var(--large);
-}
+  :is(a, button):focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
 
-h1,
-h2,
-h3 {
-  font-family: "Lato", sans-serif;
-}
+  :is(a, button):focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
 
-h1 {
-  font-size: var(--step-5);
-}
+  :is(a, button):focus:not(:focus-visible) {
+    outline: none;
+  }
 
-h2 {
-  font-size: calc(var(--step-4));
-}
+  /* Outline-offset by Adam Argyle: https://codepen.io/argyleink/pen/JjEzeLp */
 
-a,
-p,
-input,
-label,
-textarea,
-button {
-  font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
-  font-size: var(--step-1);
-}
+  @media (prefers-reduced-motion: no-preference) {
+    :hover,
+    :focus {
+      transition: outline-offset 0.25s ease;
+    }
+  }
 
-ul {
-  font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
-}
+  /* Skip link */
 
-mark {
-  background: light-dark(var(--black), var(--white));
-  color: light-dark(var(--white), var(--black));
-}
+  .visually-hidden {
+    background: var(--black);
+    color: var(--white);
+    left: var(--space-xs);
+    padding: var(--space-xs);
+    position: absolute;
+    text-align: center;
+    top: var(--space-xs);
+    z-index: 2;
+  }
 
-hr {
-  border: none;
-  border-bottom: 2px solid light-dark(var(--black), var(--white));
-  max-width: var(--extra-small);
-  margin: 0 auto;
-}
+  .visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 
-.dont-show {
-  display: none;
+  body {
+    background-color: light-dark(var(--white), var(--black));
+    color: light-dark(var(--black), var(--white));
+  }
+
+  section {
+    padding: var(--space-xl) var(--space-xs);
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: var(--large);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Lato", sans-serif;
+  }
+
+  h1 {
+    font-size: var(--step-5);
+  }
+
+  h2 {
+    font-size: calc(var(--step-4));
+  }
+
+  a,
+  p,
+  input,
+  label,
+  textarea,
+  button {
+    font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+    font-size: var(--step-1);
+  }
+
+  ul {
+    font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+  }
+
+  mark {
+    background: light-dark(var(--black), var(--white));
+    color: light-dark(var(--white), var(--black));
+  }
+
+  hr {
+    border: none;
+    border-bottom: 2px solid light-dark(var(--black), var(--white));
+    max-width: var(--extra-small);
+    margin: 0 auto;
+  }
+
+  .dont-show {
+    display: none;
+  }
 }
